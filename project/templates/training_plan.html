@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/12ef3dc083.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            box-sizing: border-box;
+        }
+        .hero
+        {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            background-size:cover;
+            background-image:linear-gradient(rgba(54, 50, 63, 0.8),rgba(13, 13, 14, 0.8)),url('static/img/program.jpg');
+            align-items: center;
+            justify-content: center;
+           
+            
+        }
+        
+        .selector
+        {
+            width: 1000px;
+            height: 200px;
+        }
+        .options:hover
+        {
+            background:rgba(255,255,255,0.7) ;
+        }
+        #selectField
+        {
+            width: 100%;
+            padding:15px 20px;
+            display: flex;
+            margin-bottom:30px;
+            
+            background-image:linear-gradient(180deg, #ffffff, #000000);
+            border-radius: 6px;
+            cursor: pointer;
+            justify-content: space-between;
+           
+        }
+        #selectField>p
+        {
+           
+         font-size: 30px;
+         padding-left: 70px;
+            
+        }
+
+        .hide
+        {
+            opacity: 0;
+          
+        }
+
+        .rotate{
+            transform: rotate(180deg);
+        }
+       
+
+        #list
+        {
+           
+            width: 100%;
+            background: rgba(255,255,255,0.7);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+        .options
+        {
+            width: 100%;
+            padding: 15px 0 15px 70px ;
+            cursor: pointer;
+            box-sizing: border-box;
+            position: relative;
+           
+        }
+        .options>p{
+            font-size: 25px;
+           
+        }
+        svg{
+            position:absolute;
+            top: 12px;
+            left: 25px;
+            font-size: 25px;
+            
+            transition: transform 0.5s;
+        }
+
+        #l1
+        {
+            color: rgb(91, 24, 24);
+            font-size: 25px;
+        }
+        #l2
+        {
+            color: rgb(154, 151, 147);
+            font-size: 25px;
+        }
+        #l3
+        {
+            color: gold;
+            font-size: 25px;
+        }
+      #arrow
+      {
+        position:static;
+      }
+
+      #logo
+      {
+        position:absolute;
+        background-color: transparent !important;
+        bottom: 680px;
+        text-align: center;
+        font-size: 20px;
+        right:1400px;
+        background-image: linear-gradient(180deg, #797272, #000000);
+       -webkit-background-clip: text;
+         background-clip: text;
+         -webkit-text-fill-color:transparent;
+         font-family: Arial, Helvetica, sans-serif;
+        
+        
+      } 
+
+
+      .Hidden
+      {
+        opacity: 0;
+        transform: translateX(-180);
+      }
+      .Show
+      {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      #btn
+      {
+        position: absolute;
+       background: transparent;
+       width: 60%;
+       border:1px solid #fff;
+       color: white;
+       cursor: pointer;
+       margin-top: 700px;
+     
+       font-size: 15px;
+       transition-delay: 0.1s;
+       background-image:linear-gradient(180deg, #550202, #000000);
+        width: 30%;
+        color: white;
+        border-color: white;
+        padding: 5px;
+        margin-top: 70px;
+        cursor: pointer;
+        align-self: center;
+        transition: all 1s;
+        top: 600px;
+     
+      }
+      #btn:hover
+      {
+        transform: translateY(-15px);
+        font-size: larger ;
+      }
+      .Hidden
+      {
+        position:absolute;
+        top:200px;
+        left: 500px;
+        background-size: 500px;
+        background-color: #797272;
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+        transition-delay: 0.2s;
+      }
+      .Show
+      {
+        position:absolute;
+        top:200px;
+        left: 500px;
+        background-size: 500px;
+        background-color: #797272;
+        width: 500px;
+        height: 500px;
+        opacity: 1;
+       
+      }
+
+
+      #option1
+      {
+        background-image:linear-gradient(180deg, #622511, #ffffff);
+      }
+      #option2
+      {
+        background-image:linear-gradient(180deg, #706c6c, #ffffff);
+      }
+      #option3
+      {
+        background-image:linear-gradient(180deg, #c6c005, #ffffff);
+      }
+
+
+      #context1,#context2,#context3
+      {
+       position:absolute;
+       width: 600px;
+       height: 250px;
+       text-align: center;
+      padding-top: 15px;
+      margin: 20px;
+       background-image: linear-gradient(180deg, #ffffff, #665e5e);
+       top: 20px;
+       border-radius: 10px;
+       box-shadow: 3px 3px 3px 3px;
+       font-size: 20px;
+       transition: all 1s;
+       line-height: 130%;
+      }
+      #context1>svg
+      {
+        font-size: 50px;
+        color: #622511;
+        top: 190px;
+        left: 270px;
+      }
+
+      .lvl
+      {
+        position: relative;
+        font-size: 100px;
+      }
+      #context2>svg
+      {
+        font-size: 50px;
+        color: #a58f87;
+        top: 190px;
+        left: 260px;
+      }
+      #context2sbg2
+      {
+        left: 300px!important;
+      }
+
+
+      #context3>svg
+      {
+        font-size: 50px;
+        color: #bbd20c;
+        top: 190px;
+        left: 220px;
+      }
+      #s2
+      {
+        left: 260px!important;
+      }
+      #s3
+      {
+        left: 300px!important;
+      }
+      .hidden
+    {
+       
+        opacity: 0;
+        filter: blur(5px);
+        transform:translateX(-100%);
+    }
+
+    a{
+        text-decoration: none;
+        color:white;
+    }
+    .Show
+    {
+        transform: translateX(0);
+        filter: blur();
+        opacity: 1;
+      
+    }
+    .lvl
+    {
+        position: absolute;
+        font-size: 20px;
+        top: 650px;
+        left: 250px;
+        width: 300px;
+        height: 300px;
+        background-color: transparent;
+       
+    }
+    .lvl>p
+    {
+        color:  linear-gradient(180deg, #ffffff, #665e5e);
+        background-image:  linear-gradient(180deg, #ffffff, #665e5e);
+    }
+    .lvl>a
+    {
+       background-image:  linear-gradient(180deg, #000000, #f7f6f6);
+       transition-delay: 0.5s;
+    }
+    .lvl a:hover
+    {
+       
+        transform: translateY(-15px);
+    }
+
+    .hide
+    {
+        filter: blur(5px);
+        transform: translateX(-300px);
+        transition-delay: 0.2s;
+    }
+    .hidde
+    {
+        filter: blur(5px);
+        transform: translateX(-300px);
+        transition-delay: 0.2s;
+    }
+    .Appear
+    {
+       
+        filter: blur();
+        transform: translateX(0px);
+    }
+   
+      
+    </style>
+</head>
+<body>
+    
+    {%extends "base.html"%}
+
+    {% block content %}
+    
+   
+
+
+    <div class="hero">
+        
+        <div class="hidden" id="context1" >
+            <p>Yey,you are a beginner!And that's fantastic because you are going to get a better , more quality life!</p>
+            <p>Get ready to learn new things and get into new habbits.</p>
+            <p>Don't forget that,if you will ever need help,you can contact us for free!</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="m8.85 17.825l3.15-1.9l3.15 1.925l-.825-3.6l2.775-2.4l-3.65-.325l-1.45-3.4l-1.45 3.375l-3.65.325l2.775 2.425ZM5.825 22l1.625-7.025L2 10.25l7.2-.625L12 3l2.8 6.625l7.2.625l-5.45 4.725L18.175 22L12 18.275ZM12 13.25Z"/></svg>
+            <a href="Greg.pdf" download="">Download Training plan!</a>
+            <a href="/project/templates/meals/">Download Meal plan!</a>
+        </div>
+        <div class="hidden" id="context2" >
+            <p>We are sure that your life quality already increased !! And that's amaaazing!
+                Let's take you to the next level and bring some new gains and new habbits!</p>
+                <p>Even if you're already with some experience under your belt, you still can contact us for any help!</p>
+                <svg id="context2sbg1" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="m8.85 17.825l3.15-1.9l3.15 1.925l-.825-3.6l2.775-2.4l-3.65-.325l-1.45-3.4l-1.45 3.375l-3.65.325l2.775 2.425ZM5.825 22l1.625-7.025L2 10.25l7.2-.625L12 3l2.8 6.625l7.2.625l-5.45 4.725L18.175 22L12 18.275ZM12 13.25Z"/></svg>
+                <svg id="context2sbg2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="m8.85 17.825l3.15-1.9l3.15 1.925l-.825-3.6l2.775-2.4l-3.65-.325l-1.45-3.4l-1.45 3.375l-3.65.325l2.775 2.425ZM5.825 22l1.625-7.025L2 10.25l7.2-.625L12 3l2.8 6.625l7.2.625l-5.45 4.725L18.175 22L12 18.275ZM12 13.25Z"/></svg>
+                <a href="WorkoutPlan.pdf" download="">Download Training plan!</a>
+                <a href="/project/templates/meals/">Download Meal plan!</a>
+            </div>
+        <div class="hidden" id="context3" >
+            <p>Congratulations! You are a really really hard-worker! But it's never too late to learn  new things!</p>
+            <p>We are sure that our programs are going to get your lifting to the next level!</p>
+            <p>Again,congratulations!</p>
+            <svg id="s1" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="m8.85 17.825l3.15-1.9l3.15 1.925l-.825-3.6l2.775-2.4l-3.65-.325l-1.45-3.4l-1.45 3.375l-3.65.325l2.775 2.425ZM5.825 22l1.625-7.025L2 10.25l7.2-.625L12 3l2.8 6.625l7.2.625l-5.45 4.725L18.175 22L12 18.275ZM12 13.25Z"/></svg>
+            <svg id="s2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="m8.85 17.825l3.15-1.9l3.15 1.925l-.825-3.6l2.775-2.4l-3.65-.325l-1.45-3.4l-1.45 3.375l-3.65.325l2.775 2.425ZM5.825 22l1.625-7.025L2 10.25l7.2-.625L12 3l2.8 6.625l7.2.625l-5.45 4.725L18.175 22L12 18.275ZM12 13.25Z"/></svg>
+            <svg id="s3" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="m8.85 17.825l3.15-1.9l3.15 1.925l-.825-3.6l2.775-2.4l-3.65-.325l-1.45-3.4l-1.45 3.375l-3.65.325l2.775 2.425ZM5.825 22l1.625-7.025L2 10.25l7.2-.625L12 3l2.8 6.625l7.2.625l-5.45 4.725L18.175 22L12 18.275ZM12 13.25Z"/></svg>
+            <a href="Greg.pdf" download="">Download training plan!!</a>
+            <a href="/project/templates/meals/">Download Meal plan!</a>
+        </div>
+    
+
+        <div class="selector" >
+            <div id="selectField">
+                <p id="selectText" >Select your experience level</p>
+                <svg  id="arrow" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="m12 15.5l4.5-4.5l-1.425-1.4L12 12.675L8.925 9.6L7.5 11Zm0 6.5q-2.075 0-3.9-.788q-1.825-.787-3.175-2.137q-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175q1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138q1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175q-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm0-2q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4Q8.65 4 6.325 6.325Q4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z"/></svg>
+            </div>
+            <ul id="list" class="hide" >
+                <li  class="options" id="option1" >
+                    <svg id="l1" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M17 13v-1.5a1.5 1.5 0 0 0-1.5-1.5A1.5 1.5 0 0 0 17 8.5V7a2 2 0 0 0-2-2h-4v2h4v2h-2v2h2v2h-4v2h4a2 2 0 0 0 2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3m18-4H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2Z"/></svg>
+                    <p id="beginner"  onclick="show1()" >Beginner</p>
+                </li>
+                <li class="options" id="option2" >
+                    <svg id="l2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M17 13h-4v-2h2a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-4v2h4v2h-2a2 2 0 0 0-2 2v4h6m4 2H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3V5Z"/></svg>
+                    <p  id="intermediate"  onclick="show2()" >Intermediate</p>
+                </li>
+                <li class="options" id="option3">
+                    <svg id="l3" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M21 17H7V3h14m0-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2m-7 14h2V5h-4v2h2M3 5H1v16a2 2 0 0 0 2 2h16v-2H3V5Z"/></svg>
+                    <p id="advanced"  onclick="show3()" >Advanced</p>
+                    
+                </li>
+            </ul>
+        </div>
+        <button type="button" id="btn" ><a href="{{url_for('calculator')}}">Next step!</a></button>
+    </div>
+
+    <div class="lvl" class="hidde" id = "lvl_1" >
+    
+    </div>
+    <div class="lvl"   class="hidde" id = "lvl_2" >
+     
+        
+    </div>
+    <div class="lvl"  class="hidde" id = "lvl_3" >
+       
+    </div>
+
+  
+    
+    <script>
+        var lvl_1 = document.getElementById("lvl_1");
+        var lvl_2 = document.getElementById("lvl_2");
+        var lvl_3 = document.getElementById("lvl_3");
+
+        var selectField=document.getElementById("selectField");
+        var selectText=document.getElementById("selectText");
+        var options=document.getElementsByClassName("options");
+        var list = document.getElementById("list");
+        var arrow=document.getElementById("arrow");
+        for(option of options)
+        {
+            option.onclick = function()
+            {
+                selectText.innerHTML=this.textContent;
+                list.classList.toggle("hide");
+            }
+        }
+
+
+        selectField.onclick = function()
+        {
+            list.classList.toggle("hide");
+            arrow.classList.toggle("rotate");
+        }
+   </script>
+
+<script>
+    function show1()
+    {
+        lvl_1.style.display = "block";
+        lvl_1.classList.add("Appear")
+        lvl_2.style.display = "none";
+        lvl_2.classList.remove("Appear");
+        lvl_3.style.display = "none";
+        lvl_3.classList.remove("Appear");
+
+        let btn = document.getElementById("context1");
+        let btn2=document.getElementById("context2");
+        let btn3=document.getElementById("context3");
+    
+        btn.classList.add("Show");
+        btn2.classList.remove("Show");
+        btn3.classList.remove("Show");
+    }
+    function show2()
+    {
+        lvl_2.style.display = "block";
+        lvl_1.style.display = "none";
+        lvl_3.style.display = "none";
+        let btn = document.getElementById("context1");
+        let btn2=document.getElementById("context2");
+        let btn3=document.getElementById("context3");
+        
+        btn.classList.remove("Show");
+        btn2.classList.add("Show");
+        btn3.classList.remove("Show");
+    }
+    function show3()
+    {
+        lvl_3.style.display = "block";
+        lvl_1.style.display = "none";
+        lvl_2.style.display = "none";
+
+        let btn = document.getElementById("context1");
+        let btn2=document.getElementById("context2");
+        let btn3=document.getElementById("context3");
+        
+        btn.classList.remove("Show");
+        btn2.classList.remove("Show");
+        btn3.classList.add("Show");
+    }
+</script>
+   
+   {%endblock%}
+</body>
+</html>

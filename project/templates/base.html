@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/12ef3dc083.js" crossorigin="anonymous"></script>
+   <style>
+        body{
+            margin :0;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        *{
+            box-sizing: border-box;
+        }
+        ul
+        {
+            list-style-type:none;
+            padding:0;
+        }
+
+
+        main{
+            padding:2em;
+            background:#111;
+        }
+        main p{
+            font-size:1.1em;
+            line-height: 27px;
+            color:#fff;
+        }
+        .container, .container-inner{
+            margin:0 auto;
+            width: 100%;
+        }
+        .container{
+            max-width: 1350px;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 5fr 1fr;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+        }
+        .container-inner{
+            max-width: 1000px;
+        }
+        nav{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2em;
+            z-index:9;
+            transition: 0.7s;
+            color: #fff;
+        }
+
+        .brand{
+            font-size:1.6em;
+        }
+        nav .container-inner{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        nav .container ul
+        {
+            width: 100%;
+            margin: 0 1em;
+        }
+        nav .container ul:nth-child(2)
+        {
+            text-align: right;
+        }
+        nav .container ul li{
+            display: inline-block;
+            margin: 0 0.7em;
+        }
+        nav a{
+            text-decoration: none;
+            font-size:0.9em;
+            transition: 0.3s;
+            font-weight: 600;
+            color: #fff;
+        }
+        nav a:hover{
+            color:red;
+        }
+
+        li{
+            transition: 1s;
+        }
+        li:hover{
+            transform: translateY(-10px);
+        }
+
+        .input-wrap{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding:0.5em 0;
+        }
+        form input, form button{
+            background:none;
+            border:none;
+            color: #fff;
+        }
+        form button{
+            cursor: pointer;
+        }
+        form input::placeholder{
+            color:#fff;
+        }
+        form input:focus{
+            outline : none;
+        }
+        nav .fa-bars{
+            font-size:1.2em;
+            cursor:pointer;
+            transition: 0.3s;
+            text-align:right;
+        }
+
+        nav .fa-bars:hover{
+            color:#e54416;
+        }
+
+       
+        .menu{
+            background-size: cover;
+             background-image:url('static/img/image2.jpg');
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size:1.3em;
+            height: 0;
+            opacity: 0;
+            transition:
+            0.7s cubic-bezier(
+                .74,-0.03,.83,.67
+            );
+            overflow-y: hidden;
+        }
+
+        .logo{
+            width: 3em;
+        }
+        .menu ul ,  .menu form{
+            margin: 1em auto;
+        }
+
+        .menu li{
+            margin: 1em 0;
+        }
+        .menu > div{
+            display:flex;
+            justify-content: start;
+            align-items: center;
+            flex-direction: column;
+            padding:6em 1em 3em 1em;
+            height: 100%;
+            overflow-y:scroll;
+        }
+
+        .menu > div::-webkit-scrollbar{
+            display:none;
+        }
+
+        .menu .social-media{
+            margin : 2em 0;
+        }
+
+        .social-media li
+        {
+            display: inline-block;
+            margin: 0 0.5em;
+        }
+        .menu-open{
+            height: 100vh;
+            opacity: 1;
+        }
+        .navbar-active{
+            background-color: #111;
+            padding:1em;
+        
+        }
+        img{
+            transition: 0.3s;
+        }
+
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <header id = "header">
+    <nav id="navbar" >
+        <div class="menu" >
+        <div>
+        <img src="{{url_for('static',filename='img/'+'logo.jpg')}}" class="logo" alt="">
+        <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Whats's new</a></li>
+            <li><a href="#">Categories</a></li>
+       </ul>
+       
+       <ul>
+        <li><a href="#">Projects</a> </li>
+        <li><a href="#">Nutrition plans</a></li>
+        <li><a href="#">Training plans</a></li>
+        <li><a href="#">Get coached!</a></li>
+        <li><a href="#">Get hired!</a></li> 
+       </ul>
+       <ul class="social-media" >
+        <li><a href="#">
+            <i class="fab fa-facebook" ></i>
+        </a></li>
+        <li><a href="#">
+              <i class="fab fa-instagram" ></i>
+        </a></li>
+        <li><a href="#">
+            <i class="fab fa-twitter" ></i>
+        </a></li>
+        <li><a href="#">
+            <i class="fab fa-youtube" ></i>
+        </a></li>
+        </ul>
+        <form action="">
+            <div class="input-wrap" >
+                <input type="search" placeholder="Search..."/>
+                <button type="submit" >
+                    <i class="fas fa-search" ></i>
+                </button>
+            </div>
+        </form>
+    </div>
+  </div>
+<div class="container" >
+    <a href="#" class="brand" >Navbar</a>
+        <div class="container-inner" >
+            <ul>
+                <li>
+                    <a href="{{url_for('home')}}">Home</a>
+                </li>
+                <li>
+                    <a href="{{url_for('register')}}">Register</a>
+                </li>
+                <li>
+                    <a href="{{url_for('register')}}">Login</a>
+                </li>
+            </ul>
+            <form >
+                <div class="input-wrap" >
+                    <input type="search" , placeholder="search..."/>
+                    <button type="submit" >
+                        <i class="fas fa-search" ></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <i class="fas fa-bars" id="menu-btn" ></i>
+
+    </div>
+</nav>
+
+</header>
+{% block content %}
+{% endblock %}
+
+
+
+
+<script>
+    const menBtn = document.getElementById('menu-btn');
+    const navbar = document.getElementById('navbar');
+    const menu = document.querySelector('.menu')
+
+    const offset = 50;
+
+    menBtn.addEventListener('click',()=>{
+        menu.classList.toggle('menu-open');
+    });
+
+    windows.addEventListener("scroll",()=>{
+        if(pageYOffset>offset)
+        {
+            navbar.classList.add('navbar-active');
+        }
+        else
+        {
+            navbar.classList.remove('navbar-active');
+        }
+    });
+</script>
+
+
+</body>
+</html>

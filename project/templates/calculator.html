@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .loan-calculator
+        {
+            font-family: "Roboto",sans-serif;
+            width: 600px;
+            margin: 24px auto;
+            background: white;
+            box-shadow: 0 12px 50px -11px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            color: #14213d;
+            overflow: hidden;
+        }
+
+        .loan-calculator .top
+        {
+            background: black;
+            color: white;
+            padding: 32px;
+        }
+        .loan-calculator .top h2
+        {
+            margin-top: 0;
+        }
+
+        .loan-calculator,
+        .loan-calculator * {
+            box-sizing: border-box;
+        }
+
+        .loan-calculator form
+        {
+            display: flex;
+            gap: 8px;
+            justify-content: space-between;
+        }
+
+
+        body{
+            background-size: cover;
+            background-image: linear-gradient(rgba(0,0,0,0.7), #ffffff) , url('static/img/calculator.jpg');
+        }
+            .loan-calculator .title
+        {
+            margin-bottom: 16px;
+        }
+
+        .loan-calculator form input
+        {
+            font-size: 20px;
+            padding: 8px 24px;
+            width: 100%;
+        }
+
+        .loan-calculator .result {
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .loan-calculator .result .left {
+            width: 100%;
+            padding: 8px 32px;
+        }
+
+        .loan-calculator .left h3{
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 8px;
+
+        }
+
+        .loan-calculator .result .value{
+            font-size: 30px;
+            font-weight: 900;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(20,33,61,0.2);
+
+        }
+
+        .loan-calculator .result .value::before
+        {
+            content:"$";
+            font-size: 24px;
+            font-weight: 400;
+            margin-right: 6px;
+            opacity: 0.4;
+        }
+
+        .loan-calculator .calculate-btn
+        {
+            background :#e63948;
+            color: #fff;
+            border: none;
+            padding: 8px 32px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 900;
+            cursor: pointer;
+            margin: 24px 0;
+        }
+
+        @media (max-width: 650px)
+        {
+            .loan-calculator
+            {
+                width: 90%;
+                max-width: 500px;
+            }
+
+            .loan-calculator form{
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .loan-calculator .result
+            {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   
+   
+
+   
+    
+    
+    <div class="loan-calculator">
+        <div class="top">
+            <h2>Calorie calculator</h2>
+            <form method="POST">
+                <div class="group">
+                    {{form.hidden_tag()}}
+                    {{form.weight.label(class="title")}}
+                    {{form.weight}}
+                </div>
+                <div class="group">
+                    {{form.height.label(class="title")}}
+                    {{form.height}}
+                </div>
+                <div class="group">
+                    {{form.age.label(class="title")}}
+                    {{form.age}}
+                    {{form.submit(class="calculate-btn")}}
+                </div>
+            </form>
+        </div>
+        <div class="result">
+            <div class="left">
+                <div class="load-emi">
+                    <h3>Calories</h3>
+                    <div class="value">{{calories}}</div>
+                </div>
+                <div class="total-interest">
+                    <h3>Protein</h3>
+                    <div class="value">{{protein}}</div>
+             </div>
+             
+        </div>
+        <div class="right">
+            
+        </div>
+    </div>
+
+
+
+    <script>
+
+
+    </script>
+</body>
+</html>

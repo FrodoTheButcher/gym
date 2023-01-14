@@ -1,0 +1,61 @@
+<style>
+    .button{
+    position: relative;
+  
+    background-image: linear-gradient(180deg, #000000, #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color:transparent;
+    font-family: Arial, Helvetica, sans-serif;
+  /* top: 110px; */
+
+  color: rgb(253, 253, 253);
+    bottom: 600px;
+    width: 400px;
+    height: 100px;
+  transition: 1s;
+    }
+
+    
+    #bttn1
+    {
+        font-size: 70px;
+        left: 50px;
+    }
+
+    #bttn2
+    {
+        left: 1000px;
+        bottom: 760px !important;
+        font-size: 70px;
+    }
+
+    .button:hover
+    {
+        background-image: linear-gradient(180deg, #ffffff, #000000); 
+        cursor: pointer;
+        transform: translateY(-20%);
+    }
+
+
+    header{
+            min-height: 100vh;
+            background-size: cover;
+             background-image:url('static/img/wallpapersden.com_bodybuilder-2020-man_3000x2000.jpg');
+        }
+
+
+</style>
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <h1 id="bttn1" class="button"> <a href="{{url_for('contact')}}">Contact us!</a> </h1>
+    <h2 id="bttn2" class="button" ><a href="{{url_for('steps')}}">Start now!</a></h2>
+   
+ 
+  
+{% endblock %}
+
